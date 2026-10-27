@@ -24,6 +24,19 @@ For the frontend and the backend:
 
 Flows and architecture include Mermaid diagrams where they help. Reports are written in the language you use.
 
+Both reports are delivered as **PDF** (`01-overview.pdf`, `02-technical.pdf`), next to their Markdown source. Arabic is rendered correctly: joined letters, right-to-left order, and English, code and tables in the right place.
+
+### PDF requirements
+
+- Node.js 18 or later
+- Chrome, Edge or Chromium installed (set `CHROME_PATH` if it is somewhere unusual)
+
+You can also convert any Markdown file yourself:
+
+```bash
+node scripts/md-to-pdf.mjs report.md [report.pdf] [--rtl | --ltr]
+```
+
 ## Install
 
 **Claude Code** (all projects):
@@ -58,9 +71,12 @@ Shortcuts: `/mahmoud-project` in Claude Code, `$mahmoud-project` in Codex.
 
 - **التقرير الأول** (`01-overview.md`): فكرة المشروع ووصف عام، والتقنيات المستخدمة، والفلو والرحلة كاملة.
 - **التقرير الثاني** (`02-technical.md`): تفاصيل الفرونت والباك، وبنية الملفات، والـ APIs، وباقي التفاصيل التقنية الموجودة بالمشروع.
+- **PDF:** التقريرين بيطلعوا PDF، والكتابة العربية فيهم مزبوطة بالكامل: الحروف موصولة، والاتجاه من اليمين لليسار، والإنجليزي والكود والجداول بمكانهم الصح. بيحتاج Node.js و Chrome أو Edge.
 
 **التشغيل:** افتح الوكيل بمجلد المشروع وقول "استخدم سكيل mahmoud-project".
 
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+Bundled in `scripts/vendor/`: [marked](https://github.com/markedjs/marked) 12.0.2 (MIT), [Mermaid](https://github.com/mermaid-js/mermaid) 10.9.1 (MIT), and the Arabic subset of [Noto Naskh Arabic](https://fonts.google.com/noto/specimen/Noto+Naskh+Arabic) (SIL Open Font License, see `scripts/vendor/fonts/OFL-LICENSE.txt`).
